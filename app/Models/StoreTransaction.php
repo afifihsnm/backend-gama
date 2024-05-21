@@ -17,7 +17,7 @@ class StoreTransaction extends Model
         'total',
         'transaction_type',
         'address',
-        'status',
+        'visit_date',
     ];
 
     public function user(): BelongsTo
@@ -33,5 +33,10 @@ class StoreTransaction extends Model
     public function storeTransactionDetails(): HasMany
     {
         return $this->hasMany(StoreTransactionDetail::class);
+    }
+
+    public function transactionStatuses(): HasMany
+    {
+        return $this->hasMany(TransactionStatus::class);
     }
 }
